@@ -27,6 +27,7 @@
 #include <iostream> 
 #include <string>
 #include <cstdlib>
+#include "lineup.h"
 #include "character.h"
 #include "barbarian.h"
 #include "goblin.h"

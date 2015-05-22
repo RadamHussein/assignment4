@@ -10,7 +10,7 @@
 #include "shadow.h"
 
 //function prototype
-string playerSelect(string input);
+string playerSelect(string input, int &teamNum, Lineup &Team1, Lineup &Team2);
 
 //function prototype
 void showMenu();
@@ -20,6 +20,8 @@ using namespace std;
 int main()
 {
 	int numPlayers;		//holds number of players
+	int teamNum1 = 1;	//number for team 1
+	int teamNum2 = 2;	//number for team 2
 	string menuSelect;	//store menu selection
 	string checkInput;	//checks string returned by function
 
@@ -46,7 +48,7 @@ int main()
 		cin >> menuSelect;
 		cout << endl;
 
-		checkInput = playerSelect(menuSelect);
+		checkInput = playerSelect(menuSelect, teamNum1, Team1, Team2);
 
 	}
 	while (checkInput.at(0) == '0');
@@ -60,7 +62,7 @@ int main()
 		cin >> menuSelect;
 		cout << endl;
 
-		checkInput = playerSelect(menuSelect);
+		checkInput = playerSelect(menuSelect, teamNum1, Team1, Team2);
 	}
 
 	cout << endl;
@@ -73,7 +75,7 @@ int main()
                 cin >> menuSelect;
                 cout << endl;
 
-                checkInput = playerSelect(menuSelect);
+                checkInput = playerSelect(menuSelect, teamNum2, Team1, Team2);
 
         }
         while (checkInput.at(0) == '0');
@@ -87,18 +89,24 @@ int main()
                 cin >> menuSelect;
                 cout << endl;
 
-                checkInput = playerSelect(menuSelect);
+                checkInput = playerSelect(menuSelect, teamNum2, Team1, Team2);
                 cout << endl;
         }
 
+	cout << "Team 1 is: " << endl;
+	Team1.print();
+	cout << endl;
 
+	cout << "Team 2 is: " << endl;
+	Team2.print();
+	cout << endl;
 	return 0;
 }
 
 /********************************************************************
  * playerSelect()
  *******************************************************************/
-string playerSelect(string input)
+string playerSelect(string input, int &teamNum, Lineup &Team1, Lineup &Team2)
 {
 	string player;
 	string playerName;
@@ -108,9 +116,19 @@ string playerSelect(string input)
 		cout << "You've chosen Barbaian" << endl;
 		cout << "Name your Barbarian: ";
 		cin >> playerName;
-		Barbarian newBarbarian(playerName);
+		cin.ignore();
+		Character *ptrBarbarian = new Barbarian(playerName);
 		player = "Barbarian";
 		
+		if (teamNum == 1)
+		{
+			Team1.addBack(ptrBarbarian);
+		}
+		
+		else if (teamNum == 2)
+		{
+			Team2.addBack(ptrBarbarian);
+		}
 		return player;		
 	}	
 
@@ -119,8 +137,19 @@ string playerSelect(string input)
 		cout << "You've chosen Blue Men" << endl;
 		cout << "Name your Blue Men clan: " << endl;
 		cin >> playerName;
-		BlueMen newBlueMen(playerName);
+		cin.ignore();
+		Character *ptrBlueMen = new BlueMen(playerName);
 		player = "Blue Men";
+
+		if (teamNum == 1)
+		{
+			Team1.addBack(ptrBlueMen);
+		}
+
+		else if (teamNum == 2)
+		{
+			Team2.addBack(ptrBlueMen);
+		}
 		return player;
 	}
 
@@ -129,8 +158,19 @@ string playerSelect(string input)
 		cout << "You've chosen Reptile People" << endl;
 		cout << "Name your Reptile People: " << endl;
 		cin >> playerName;
-		Reptile newReptile(playerName);
+		cin.ignore();
+		Character *ptrReptile = new Reptile(playerName);
 		player = "Reptile People";
+	
+		if (teamNum == 1)
+		{
+			Team1.addBack(ptrReptile);
+		}
+	
+		else if (teamNum ==2)
+		{
+			Team2.addBack(ptrReptile);
+		}
 		return player;	
 	}
 
@@ -139,8 +179,19 @@ string playerSelect(string input)
 		cout << "You've chosen The Shadow" << endl;
 		cout << "Enter a name for The Shadow: " << endl;
 		cin >> playerName;
-		Shadow newShadow(playerName);
+		cin.ignore();
+		Character *ptrShadow = new Shadow(playerName);
 		player = "The Shadow";
+
+		if (teamNum == 1)
+		{
+			Team1.addBack(ptrShadow);
+		}
+
+		else if (teamNum == 2)
+		{
+			Team2.addBack(ptrShadow);
+		}
 		return player;
 	}
 
@@ -149,8 +200,19 @@ string playerSelect(string input)
 		cout << "You've chosen the Goblin" << endl;
 		cout << "Enter a name for your Goblin: " << endl;
 		cin >> playerName;
-		Goblin newGoblin(playerName);
+		cin.ignore();
+		Character *ptrGoblin = new Goblin(playerName);
 		player = "Goblin";
+
+		if (teamNum == 1)
+		{
+			Team1.addBack(ptrGoblin);
+		}
+
+		else if (teamNum == 2)
+		{
+			Team2.addBack(ptrGoblin);
+		}
 		return player;
 	}
 

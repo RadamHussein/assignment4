@@ -19,6 +19,8 @@ Lineup::Lineup()
  *******************************************************************/
 void Lineup::addBack(Character *ptrPlayer)
 {
+	cout << "hello from addBack()" << endl;
+
 	if (head == NULL)
 	{
 		head = new Node(ptrPlayer);
@@ -75,11 +77,10 @@ Lineup::~Lineup()
  *******************************************************************/
 void Lineup::print() const
 {	
-	cout << "List now contains ";
 	Node *ptrNode = head;	//begin at head of list
 	while (ptrNode)
 	{
-		cout << ptrNode->ptrPlayer->getName() << " ";
+		cout << ptrNode->ptrPlayer->getName() << " " << endl;
 		ptrNode = ptrNode->next;
 	}
 }
