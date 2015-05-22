@@ -9,7 +9,7 @@ private:
 	int roll2;	//holds second roll
 	int roll3;	//holds third roll
 public:
-	Reptile();	//constructor	
+	Reptile(string name);	//constructor	
 	int attack();	//attack function
 	int defend();	//defense function
 	//strength function

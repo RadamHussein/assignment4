@@ -12,9 +12,10 @@ using namespace std;
  * 		Reptile class
  * Paramters: None
  *******************************************************************/
-Reptile::Reptile()
+Reptile::Reptile(string name) : Character(name)
 {
-	name = "Reptile People";
+	cout << "Reptile constructor" << endl;
+	type = "Reptile People";
 	armor = 7;
 	strength = 18;
 	alive = true;

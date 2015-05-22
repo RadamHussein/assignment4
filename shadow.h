@@ -9,7 +9,7 @@ private:
 	int roll2;	//holds second roll
 	int coinflip;	//holds value for coin flip
 public:
-        Shadow();	//constructor
+        Shadow(string name);	//constructor
 	int attack();	//attack function
 	int defend();	//defense function
 	//strength function

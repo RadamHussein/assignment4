@@ -8,6 +8,7 @@ using namespace std;
 class Character
 {
 protected:
+	string type;	//holds the type of character
 	string name;	//name of character
         int armor;	//holds armor value
         int strength;	//holds strength value
@@ -19,7 +20,7 @@ protected:
 	int defend_total;	//total for defense roll
 	bool achilles_cut;	//is achilles cut
 public:
-        Character();	//constructor
+        Character(string name);	//constructor
 	int getArmor();		//return armor value
 	int getStrength();	//return strength value
 	string getAlive();	//return alive

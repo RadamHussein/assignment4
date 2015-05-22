@@ -12,9 +12,10 @@ using namespace std;
  * 		Goblin class
  * Parameters: None
  *******************************************************************/
-Goblin::Goblin()
+Goblin::Goblin(string name) : Character(name)
 {
-	name = "Goblin";
+	cout << "Goblin constructor" << endl;
+	type = "Goblin";
 	armor = 3;
 	strength = 8;
 	alive = true;

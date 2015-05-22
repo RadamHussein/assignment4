@@ -11,9 +11,10 @@ using namespace std;
  * 		is an abstract class
  * Parameters: None
  *******************************************************************/
-Character::Character()
+Character::Character(string name)
 {
 	alive = true;
+	this->name = name;
 }
 
 /********************************************************************

@@ -12,9 +12,11 @@ using namespace std;
  * 		class
  * Parameters: None
  *******************************************************************/
-Barbarian::Barbarian()
+Barbarian::Barbarian(string name) : Character(name)
 {
-	name = "Barbarian";
+	cout << "Barbarian constructor" << endl;
+	this->name = name;
+	type = "Barbarian";
 	armor = 0;
 	strength = 12;
 	alive = true;

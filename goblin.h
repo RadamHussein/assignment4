@@ -8,7 +8,7 @@ private:
 	int roll1;	//holds first roll
 	int roll2;	//holds second roll
 public:
-        Goblin();	//constructor
+        Goblin(string name);	//constructor
 	int attack();	//attack function
 	int defend();	//defense function
 	//strength function

@@ -11,9 +11,10 @@ using namespace std;
  * Description: Initializes all the variables of the BlueMen class.
  * Parameters: None
  *******************************************************************/
-BlueMen::BlueMen()
+BlueMen::BlueMen(string name) : Character(name)
 {
-	name = "Blue Men";
+	cout << "Blue Men constructor" << endl;
+	type = "Blue Men";
 	armor = 3;
 	strength = 12;
 	alive = true;

@@ -11,9 +11,10 @@ using namespace std;
  * Description: Initializes member variables of the Shadow class.
  * Parameters: None
  *******************************************************************/
-Shadow::Shadow()
+Shadow::Shadow(string name) : Character(name)
 {
-	name = "The Shadow";
+	cout << "Shadow constructor" << endl;
+	type = "The Shadow";
 	armor = 0;
 	strength = 12;
 	alive = true;
