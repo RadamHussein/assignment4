@@ -103,12 +103,26 @@ int main()
 	Team2.print();
 	cout << endl;
 
-	cout << "Team 1 will attack first." << endl;
+	cout << "Team 1 will attack first." << endl << endl;
+	cout << "Matchup: " << Team1.getNode()->ptrPlayer->getName();
+	cout << " vs. " << Team2.getNode()->ptrPlayer->getName() << endl;
 	
 	attack_roll = Team1.getNode()->ptrPlayer->attack();
 	defense_roll = Team2.getNode()->ptrPlayer->defend();
-	//Team2.getNode->ptrPlayer->setStrength(attack_roll, defense_roll);
+	Team2.getNode()->ptrPlayer->setStrength(attack_roll, defense_roll);
 
+	cout << "Team 2 return attack: " << endl;
+	attack_roll = Team2.getNode()->ptrPlayer->attack();
+	defense_roll = Team1.getNode()->ptrPlayer->defend();
+	Team1.getNode()->ptrPlayer->setStrength(attack_roll, defense_roll);
+
+	//print teams
+	cout << ">>> Team 1 <<<" << endl;
+	Team1.printStatus();
+	cout << endl << endl;
+	cout << ">>> Team 2 <<<" << endl;
+	Team2.printStatus();
+	cout << endl << endl;
 
 	return 0;
 }

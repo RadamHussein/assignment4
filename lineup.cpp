@@ -95,6 +95,22 @@ void Lineup::print() const
 	}
 }
 
+/********************************************************************
+ * printStatus()
+ *******************************************************************/
+void Lineup::printStatus() const
+{
+	Node *ptrNode = head; //begin at head of list
+	while (ptrNode)
+	{
+		cout << ptrNode->ptrPlayer->getType() << endl;
+		cout << "Name: " << ptrNode->ptrPlayer->getName() << endl;
+		cout << "Strength: " << ptrNode->ptrPlayer->getStrength();
+		cout << endl << endl;
+		ptrNode = ptrNode->next;
+	}
+}
+
 /**************************************************************
  * Function: removeFront()
  * Description: Removes and element from the front of the list

@@ -14,4 +14,5 @@ public:
 	//int removeFront();
 	//int removeBack();
 	void print() const;
+	void printStatus() const;
 };
