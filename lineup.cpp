@@ -11,6 +11,15 @@ Lineup::Lineup()
 {
 	head = NULL;
 }
+
+/*******************************************************************
+ * getNode()
+ ******************************************************************/
+Node *Lineup::getNode()
+{
+	return head;
+}	
+
 /********************************************************************
  * Function: addBack()
  * Description: Takes in an int, creates a new node with the int, 
@@ -80,6 +89,7 @@ void Lineup::print() const
 	Node *ptrNode = head;	//begin at head of list
 	while (ptrNode)
 	{
+		cout << ptrNode->ptrPlayer->getType() << ": ";
 		cout << ptrNode->ptrPlayer->getName() << " " << endl;
 		ptrNode = ptrNode->next;
 	}

@@ -26,6 +26,7 @@ public:
 	string getAlive();	//return alive
 	void setAlive();	//change alive variable
 	string getName();	//return character's name
+	string getType();	//return character's type
 	void setAchilles();	//change value of achilles_cut
 	virtual int attack() = 0;	//virtual function
 	virtual int defend() = 0;	//virtual function

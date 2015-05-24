@@ -22,6 +22,8 @@ int main()
 	int numPlayers;		//holds number of players
 	int teamNum1 = 1;	//number for team 1
 	int teamNum2 = 2;	//number for team 2
+	int attack_roll;	//attacker roll total	
+	int defense_roll;	//defender roll total
 	string menuSelect;	//store menu selection
 	string checkInput;	//checks string returned by function
 
@@ -100,6 +102,14 @@ int main()
 	cout << "Team 2 is: " << endl;
 	Team2.print();
 	cout << endl;
+
+	cout << "Team 1 will attack first." << endl;
+	
+	attack_roll = Team1.getNode()->ptrPlayer->attack();
+	defense_roll = Team2.getNode()->ptrPlayer->defend();
+	//Team2.getNode->ptrPlayer->setStrength(attack_roll, defense_roll);
+
+
 	return 0;
 }
 

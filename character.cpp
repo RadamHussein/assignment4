@@ -72,6 +72,16 @@ string Character::getName()
 	return name;
 }
 
+/*******************************************************************
+ * Function: getType()
+ * Description: Returns the type of character for a character object
+ * Parameters: none
+ *******************************************************************/
+string Character::getType()
+{
+	return type;
+}
+
 /********************************************************************
  * Function: setAlive()
  * Descriptioin: Changes the value of alive bool when a player has 
