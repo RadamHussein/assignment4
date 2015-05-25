@@ -1,5 +1,6 @@
 #include <iostream>
 #include "lineup.h"
+#include "loserStack.h"
 
 using namespace std;
 /*******************************************************************
@@ -13,7 +14,10 @@ Lineup::Lineup()
 }
 
 /*******************************************************************
- * getNode()
+ * Function: getNode()
+ * Description: this function returns the head pointer in order for 
+ * 		the object it points to be to accessed in the list
+ * Parameters: none
  ******************************************************************/
 Node *Lineup::getNode()
 {
@@ -28,8 +32,6 @@ Node *Lineup::getNode()
  *******************************************************************/
 void Lineup::addBack(Character *ptrPlayer)
 {
-	cout << "hello from addBack()" << endl;
-
 	if (head == NULL)
 	{
 		head = new Node(ptrPlayer);
@@ -111,6 +113,24 @@ void Lineup::printStatus() const
 	}
 }
 
+/********************************************************************
+ * Function: checkLineup()
+ * Description: looks through lineup to see how many nodes are left
+ * Parameters: none
+ *******************************************************************/
+int Lineup::checkLineup()
+{
+	Node *ptrNode = head;	//begin at head of list
+	int nodesLeft = 0;
+	
+	while (ptrNode)
+	{
+		ptrNode = ptrNode->next;
+		nodesLeft++;
+	}
+	
+	return nodesLeft;
+}
 /**************************************************************
  * Function: removeFront()
  * Description: Removes and element from the front of the list
@@ -118,59 +138,31 @@ void Lineup::printStatus() const
  * Parameters: none
  * Output: returns and integer value
 **************************************************************/
-/*
-int Lineup::removeFront()
+void Lineup::removeFront(LoserStack *ptrLosers)
 {
 	Node *ptrNode;
 
-	if (!head)
+		Character *ptrCharacter;	//new pointer to character
+		ptrCharacter = head->ptrPlayer;	//store character in pointer
+		ptrNode = head;			//copy head to node pointer
+		head = head->next;		//point head to next pointer
+		delete ptrNode;			//delete first node
+
+	if (ptrCharacter->getAlive() == "living")
 	{
-		return 0;
+                Node *ptrNewNode = head;	//create new node
+                while (ptrNewNode->next != NULL)
+                {
+                        ptrNewNode = ptrNewNode->next;
+
+                }
+		//assign character to new node at the back
+                ptrNewNode->next = new Node(ptrCharacter);	
 	}
 	
-	else
-	{	
-		int value = head->value;	//store val to return
-		ptrNode = head;
-		head = head->next;
-		delete ptrNode;
-		return value;
+	else if (ptrCharacter->getAlive() == "dead")
+	{
+		ptrLosers->addFront(ptrCharacter);
 	}
 }
-*/
-/**************************************************************
- * Function: removeBack()
- * Description: removes an element from the back of the list
- * Parameters: none
- * Output: returns and integer value
-**************************************************************/
-/*
-int Lineup::removeBack()
-{
-	Node *ptrNode, *previousPtrNode;
 
-	//check if list is empty
-	if (!head)
-	{
-		return 0;
-	}
-	
-	else 
-	{
-		Node *previousPtrNode = head;
-		Node *ptrNode = head->next;
-
-		//iterate through list skipping middle values
-		while (ptrNode->next != NULL)
-		{
-			previousPtrNode = ptrNode;
-			ptrNode = ptrNode->next;
-		}
-
-		//create variable to return 
-		int nodeVal = ptrNode->value;
-		delete ptrNode;
-		previousPtrNode->next = NULL;
-		return nodeVal;
-	}
-}*/

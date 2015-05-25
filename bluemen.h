@@ -13,7 +13,8 @@ public:
 	int attack();	//attack function
 	int defend();	//defense function
 	//strength function
-	void setStrength(int attack_roll, int defend_roll);
+	int setStrength(int attack_roll, int defend_roll);
+	void adjustStrength();
 };
 #endif
 

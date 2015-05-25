@@ -1,4 +1,5 @@
 #include "node.h"
+#include "loserStack.h"
 
 class Lineup
 {
@@ -11,8 +12,8 @@ public:
 	void addFront(Character *ptrPlayer);
 	void addBack(Character *ptrPlayer);
 	Node *getNode();
-	//int removeFront();
-	//int removeBack();
+	void removeFront(LoserStack *ptrLosers);
 	void print() const;
 	void printStatus() const;
+	int checkLineup();
 };

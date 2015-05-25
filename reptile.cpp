@@ -14,7 +14,6 @@ using namespace std;
  *******************************************************************/
 Reptile::Reptile(string name) : Character(name)
 {
-	cout << "Reptile constructor" << endl;
 	type = "Reptile People";
 	armor = 7;
 	strength = 18;
@@ -80,7 +79,7 @@ int Reptile::defend()
  * 		points if necessary. 
  * Parameters: ints for attack total and defense total. 
  *******************************************************************/
-void Reptile::setStrength(int attack_roll, int defend_roll)
+int Reptile::setStrength(int attack_roll, int defend_roll)
 {
         damage = (attack_roll - defend_roll) - armor;
         
@@ -88,10 +87,32 @@ void Reptile::setStrength(int attack_roll, int defend_roll)
         {
                 strength = (strength - damage);
                 cout << "Damage to Reptile People" << endl << endl;
+		return 1;
         }
         else if (damage < 1)
         {
                 cout << "No damage to Reptile People" << endl << endl;
+		return 0;
         }
+}
+
+/********************************************************************
+ * Function: adjustStrength()
+ * Description: Adjust Reptile People's strength by 1 if it is less 
+ * 		than 18. 
+ * Parameters: none
+ *******************************************************************/
+void Reptile::adjustStrength()
+{
+        if (strength < 18)
+        {
+                strength = strength + 1;
+                cout << "The Reptile Poeple have recovered some strength." << endl << endl;
+        }
+	
+	else
+	{
+		cout << "The Reptile People remain at full strength." << endl << endl;
+	}
 }
 

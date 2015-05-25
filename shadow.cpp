@@ -13,7 +13,6 @@ using namespace std;
  *******************************************************************/
 Shadow::Shadow(string name) : Character(name)
 {
-	cout << "Shadow constructor" << endl;
 	type = "The Shadow";
 	armor = 0;
 	strength = 12;
@@ -94,7 +93,7 @@ int Shadow::defend()
  * 		strength if necessary.
  * Parameters: ints for attack total and defense total 
  *******************************************************************/
-void Shadow::setStrength(int attack_roll, int defend_roll)
+int Shadow::setStrength(int attack_roll, int defend_roll)
 {
         damage = (attack_roll - defend_roll) - armor;
        
@@ -102,9 +101,31 @@ void Shadow::setStrength(int attack_roll, int defend_roll)
         {
                 strength = (strength - damage);
                 cout << "Damage to The Shadow" << endl << endl;
+		return 1;
         }
         else if (damage < 1)
         {
                 cout << "No damage to The Shadow" << endl << endl;
+		return 0;
         }
 }
+
+/*********************************************************************
+ * Function: adjustStrength()
+ * Description: adjust strength by 1 if it is less than 12
+ * Parameters: none
+ *******************************************************************/
+void Shadow::adjustStrength()
+{
+        if (strength < 12)
+        {
+                strength = strength + 1;
+                cout << "The Shadow has recovered some strength." << endl << endl;
+        }
+
+	else 
+	{
+		cout << "The Shadow remains at full strength." << endl << endl;
+	}
+}
+

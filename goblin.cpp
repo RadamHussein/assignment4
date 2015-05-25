@@ -14,7 +14,6 @@ using namespace std;
  *******************************************************************/
 Goblin::Goblin(string name) : Character(name)
 {
-	cout << "Goblin constructor" << endl;
 	type = "Goblin";
 	armor = 3;
 	strength = 8;
@@ -74,7 +73,7 @@ int Goblin::defend()
  * 		points if necessary.
  * Parameters: Ints for attack total and defense total 
  *******************************************************************/
-void Goblin::setStrength(int attack_roll, int defend_roll)
+int Goblin::setStrength(int attack_roll, int defend_roll)
 {
         damage = (attack_roll - defend_roll) - armor;
 
@@ -82,10 +81,32 @@ void Goblin::setStrength(int attack_roll, int defend_roll)
         {
                 strength = (strength - damage);
                 cout << "Damage to Goblin" << endl << endl;
+		return 1;
         }
         else if (damage < 1)
         {
                 cout << "No damage to Goblin" << endl << endl;
+		return 0;
         }
 }
+
+/********************************************************************
+ * Function: adjustStrength()
+ * Description: Adjust Goblins strength by 1 if it is less than 8
+ * Parameters: none
+ *******************************************************************/
+void Goblin::adjustStrength()
+{
+        if (strength < 8)
+        {
+                strength = strength + 1;
+                cout << "Goblin has recovered some strength." << endl << endl;
+        }
+
+	else
+	{
+		cout << "Goblin remains at full strength." << endl << endl;
+	}
+}
+
 

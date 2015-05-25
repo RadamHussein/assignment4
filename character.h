@@ -28,9 +28,10 @@ public:
 	string getName();	//return character's name
 	string getType();	//return character's type
 	void setAchilles();	//change value of achilles_cut
-	virtual int attack() = 0;	//virtual function
-	virtual int defend() = 0;	//virtual function
-	//virtual function
-	virtual void setStrength(int attack_roll, int defend_roll) = 0;
+	//virtual functions
+	virtual int attack() = 0;
+	virtual int defend() = 0;
+	virtual int setStrength(int attack_roll, int defend_roll) = 0;
+	virtual void adjustStrength() = 0;
 };
 #endif

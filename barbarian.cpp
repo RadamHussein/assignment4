@@ -14,8 +14,6 @@ using namespace std;
  *******************************************************************/
 Barbarian::Barbarian(string name) : Character(name)
 {
-	cout << "Barbarian constructor" << endl;
-	this->name = name;
 	type = "Barbarian";
 	armor = 0;
 	strength = 12;
@@ -79,7 +77,7 @@ int Barbarian::defend()
  * 		the strength points.
  * Parameters: int for attack total and defense total
  *******************************************************************/
-void Barbarian::setStrength(int attack_roll, int defend_roll)
+int Barbarian::setStrength(int attack_roll, int defend_roll)
 {
 	damage = (attack_roll - defend_roll) - armor;
 
@@ -87,10 +85,30 @@ void Barbarian::setStrength(int attack_roll, int defend_roll)
 	{
 		strength = (strength - damage);
 		cout << "Damage to Barbarian" << endl << endl;
+		return 1;
 	}
 	else if (damage < 1)
 	{
 		cout << "No damage to Barbarian" << endl << endl;
+		return 0;
 	}
 }
 
+/********************************************************************
+ * Function :adjustStrength()
+ * Description: adjust barbarian strength by 1 if they have lost strength
+ * Parameters: none
+ *******************************************************************/
+void Barbarian::adjustStrength()
+{
+	if (strength < 12)
+	{
+		strength = strength + 1;
+		cout << "Barbarian has recovered some strength." << endl << endl;
+	}
+	
+	else
+	{
+		cout << "Barbarian remains at full strength." << endl << endl;
+	}
+}

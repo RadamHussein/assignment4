@@ -13,7 +13,6 @@ using namespace std;
  *******************************************************************/
 BlueMen::BlueMen(string name) : Character(name)
 {
-	cout << "Blue Men constructor" << endl;
 	type = "Blue Men";
 	armor = 3;
 	strength = 12;
@@ -80,7 +79,7 @@ int BlueMen::defend()
  * 		the strength points. 
  * Parameters: ints for attack total and defense total
  *******************************************************************/
-void BlueMen::setStrength(int attack_roll, int defend_roll)
+int BlueMen::setStrength(int attack_roll, int defend_roll)
 {
 	damage = (attack_roll - defend_roll) - armor;
 
@@ -88,10 +87,31 @@ void BlueMen::setStrength(int attack_roll, int defend_roll)
 	{
 		strength = (strength - damage);
 		cout << "Damage to Blue Men" << endl << endl;
+		return 1;
 	}
 	else if (damage < 1)
 	{
 		cout << "No damage to Blue Men" << endl << endl;
+		return 0;
+	}
+}
+
+/********************************************************************
+ * Function: adjustStrength()
+ * Description: Adjust BlueMen strength by 1 if it is less than 12.
+ * Parameters: none
+ *******************************************************************/
+void BlueMen::adjustStrength()
+{
+        if (strength < 12)
+        {
+                strength = strength + 1;
+                cout << "The Blue Men have recovered some strength." << endl << endl;
+        }
+
+	else
+	{
+		cout << "The Blue Men Remain at full strength." << endl << endl;
 	}
 }
 

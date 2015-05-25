@@ -103,3 +103,4 @@ void Character::setAchilles()
 {
 	achilles_cut = true;
 }
+

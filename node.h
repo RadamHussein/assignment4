@@ -1,5 +1,7 @@
 #include <stddef.h>
 #include "character.h"
+#ifndef NODE_H
+#define NODE_H
 
 struct Node
 {
@@ -12,4 +14,4 @@ struct Node
                 next = next1;
         }
 };
-
+#endif
